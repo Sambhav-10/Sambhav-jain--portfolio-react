@@ -4,22 +4,23 @@ const About = () => {
   return (
     <div className="bg-black text-white border-t-4 rounded-full border-[#77b28c]">
       <p className="font-bold text-center text-4xl text- pt-10">About</p>
-      <div className="flex  w-full h-[90vh]">
-        <div className="w-1/2 ">
-          <div className="w-full h-full flex justify-center items-center">
+      <div className=" md:flex  w-full h-[100vh]">
+        <div className=" md:w-1/2 ">
+          <div className=" mt-5 md:w-full h-full flex justify-center items-center">
             <img
+            
               width={500}
               height={400}
-              className="rounded-2xl"
+              className="rounded-2xl w-56"
               src={Aboutme}
               alt=""
             />
           </div>
         </div>
-        <div className="w-1/3 h-full flex items-center">
-          <div className="p-4">
-            <h1 className="text-6xl text-[#77b28c] font-bold  ">Sambhav jain</h1>
-            <p className="mt-4 ">
+        <div className=" md:w-1/3 h-full flex md:items-center ">
+          <div className="p-6 md:p-4">
+            <h1 className=" text-6xl text-[#77b28c] font-bold  ">Sambhav jain</h1>
+            <p className="mt-3 md:mt-4 text-center">
               {" "}
               Hey there, I'm Sambhav Jain, a frontend web developer passionate
               about crafting intuitive and impactful digital experiences. My
@@ -30,7 +31,7 @@ const About = () => {
               blend functionality with aesthetics.
             </p>
 
-            <p className="mt-4">
+            <p className="md:mt-4 text-center">
               For me, web development isn't just about code; it's about crafting
               experiences that captivate and connect. I'm constantly driven to
               push boundaries, learn, and contribute to the ever-evolving world

@@ -8,7 +8,8 @@ import Header from "./Components/Header";
 import VideoResume from "./Components/VideoResume";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
-import Cheak from "./Components/Cheak";
+// import Cheak from "./Components/Cheak";
+import Humberger from "./Components/Humberger";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         {/* <Projects/> */}
        
 
-        <Header />
+        {/* <Header /> */}
+        <Humberger/>
         <Home />
         <VideoResume />
         <Portfolio />
