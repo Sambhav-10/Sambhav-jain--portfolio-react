@@ -25,8 +25,12 @@ const Portfolio = () => {
             </p>
             <p>Tools- React</p>
             <div className="md:mt-5 flex w-full justify-around gap-5 text-center ">
-              <button className="bg-[#77b28c] w-28 rounded-xl p-2">Live</button>
-              <button className="bg-[#77b28c] w-28 rounded-xl p-2">Sourse code</button>
+               <button className="bg-[#77b28c] w-28 rounded-xl p-2">
+                <a href="https://youtube-all-clone.vercel.app/">Live</a>
+              </button>
+              <button className="bg-[#77b28c] w-28 rounded-xl p-2">
+              <a href="https://github.com/Sambhav-10/youtube-all-clone">Sourse code</a>
+              </button>
             </div>
           </div>
         </div>
