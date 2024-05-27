@@ -5,7 +5,7 @@ const About = () => {
     <div className=" bg-black text-white border-t-4  overflow-scroll rounded-full border-[#77b28c] h-full ">
       <div>
       <p className="font-bold text-center text-4xl text- pt-10">About</p>
-      <div className=" md:flex  w-full h-[100vh]">
+      <div className=" md:flex  w-full h-[80vh]">
         <div className=" md:w-1/2 ">
           <div className=" mt-5 md:w-full h-full flex justify-center items-center">
             <img
