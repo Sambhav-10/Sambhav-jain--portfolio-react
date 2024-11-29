@@ -1,85 +1,133 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { Projects } from "../utils/constent"; // Make sure this is the array of projects
 
-const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      heading: "Nature's Beauty",
-      description:
-        "Explore the stunning beauty of nature with this collection of landscape photographs.",
-      tagline: "Experience the tranquility of untouched landscapes.",
-      imgUrl:
-        "https://images.pexels.com/photos/18156147/pexels-photo-18156147/free-photo-of-woman-wearing-wedding-dress-sitting-on-concrete-block.jpeg",
-    },
-    {
-      id: 2,
-      heading: "Abstract Artistry",
-      description:
-        "Dive into the world of abstract art with these vibrant and expressive paintings.",
-      tagline: "Unleash your imagination.",
-      imgUrl:
-        "https://images.pexels.com/photos/10139619/pexels-photo-10139619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-    {
-      id: 3,
-      heading: "Urban Exploration",
-      description:
-        "Discover the hidden gems of city life through these urban photography series.",
-      tagline: "Capture the essence of bustling streets.",
-      imgUrl:
-        "https://images.pexels.com/photos/14894306/pexels-photo-14894306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-    {
-      id: 4,
-      heading: "Blue House with Pink Blossoms",
-      description:
-        "A beautiful blue house adorned with pink blossoms on the roof.",
-      tagline: "Colorful and picturesque architecture.",
-      imgUrl:
-        "https://images.pexels.com/photos/20780434/pexels-photo-20780434/free-photo-of-a-blue-house-with-pink-blossoms-on-the-roof.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-  ];
+const Project = () => {
+  const [currentIndex, setCurrentIndex] = useState(0); // Track the index of the current project
+  const scrollContainerRef = useRef(null);
 
-  const [show, Setshow] = useState(false);
-  function change(id) {
-    Setshow(!show);
-  }
+  // Function to handle scrolling
+  const handleScroll = (direction) => {
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      const scrollAmount = direction === "next" ? 300 : -300;
+      scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    } 
+  };
+
+  // Handle "Next" and "Previous" button clicks
+  const goToNextProject = () => {
+    if (currentIndex < Projects.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      setCurrentIndex(0); // Reset to the first project if it's the last one
+    }
+  };
+
+  const goToPreviousProject = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    } else {
+      setCurrentIndex(Projects.length - 1); // Go to the last project if it's the first one
+    }
+  };
+
   return (
-    <>
-      <div className="w-full bg-slate-400 h-[100vh] flex items-center">
-        <div className="justify-around w-full h-full items-center">
-          {projects.map(({ id, heading, description, tagline, imgUrl }) => {
-            return (
-              <>
-                <div
-                  className="flex justify-around w-full h-full items-center"
-                  key={id}
-                >
-                  <div className="">
-                    <img
-                      className="hover:w-56"
-                      onClick={() => change(id)}
-                      src={imgUrl}
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
+    <div className="text-white p-2">
+      <h1 className="text-center text-[#77b28c] text-6xl font-bold py-5">
+        Project
+      </h1>
 
-                  <div className={show === true ? "hidden" : "block"}>
-                    <p>{tagline}</p>
-                    <h2>{heading}</h2>
-                    <p>{description}</p>
-                    <button>Button</button>
-                  </div>
+      {/* Scroll Buttons */}
+
+      {/* Project Cards - Only Display One */}
+      <div
+        ref={scrollContainerRef}
+        className="w-full md:h-96 items-center flex justify-center overflow-x-auto scroll-smooth space-x-4 p-2"
+      >
+        <button
+          onClick={goToPreviousProject}
+          className="md:flex hidden  bg-[#77b28c] text-white px-4 py-2 rounded-full"
+        >
+          Previous
+        </button>
+        {/* Display the current project */}
+        {Projects[currentIndex] && (
+          <div className="w-[80%] h-full md:flex border-2 border-[#77b28c] p-2 rounded-lg md:p-0">
+            {/* Image Section */}
+            <div className="w-full md:w-1/2">
+              <button className="w-full h-full bg-[#77b28c] rounded-xl">
+                <img
+                  src={
+                    Projects[currentIndex]?.image ||
+                    "https://via.placeholder.com/300"
+                  }
+                  alt={Projects[currentIndex]?.name || "Project image"}
+                  className=" h-48 w-full object-cover rounded-lg"
+                />
+              </button>
+            </div>
+
+            {/* Text Section */}
+            <div className="md:w-1/2 flex  justify-center items-center text-center px-5">
+              <div>
+                <h4 className="text-2xl font-bold">
+                  {Projects[currentIndex]?.name}
+                </h4>
+                <p className="my-4 text-sm">
+                  {Projects[currentIndex]?.description}
+                </p>
+
+                {/* Action Buttons */}
+                <div className="mt-5 flex w-full justify-center">
+                  <button
+                    onClick={() =>
+                      window.location.replace(Projects[currentIndex]?.liveLink)
+                    }
+                    className="bg-[#77b28c] rounded-xl p-2 w-28"
+                  >
+                    Live
+                  </button>
+
+                  {Projects[currentIndex]?.sourseCode && (
+                    <button
+                      onClick={() =>
+                        window.location.replace(
+                          Projects[currentIndex]?.sourseCode
+                        )
+                      }
+                      className=" bg-[#77b28c] rounded-xl p-2 w-28"
+                    >
+                      Source Code
+                    </button>
+                  )}
                 </div>
-              </>
-            );
-          })}
-        </div>
+              </div>
+            </div>
+          </div>
+        )}
+        <button
+          onClick={goToNextProject}
+          className="md:flex hidden  bg-[#77b28c] text-white px-4 py-2 rounded-full"
+        >
+          Next
+        </button>
       </div>
-    </>
+      <div className="w-full md:hidden flex justify-around pt-5">
+      <button
+          onClick={goToPreviousProject}
+          className="md:hidden flex  bg-[#77b28c] text-white px-4 py-2 rounded-full"
+        >
+          Previous
+        </button>
+        <button
+          onClick={goToNextProject}
+          className="md:hidden  flex  bg-[#77b28c] text-white px-4 py-2 rounded-full"
+        >
+          Next
+        </button>
+      </div>
+    </div>
   );
 };
 
-export default Projects;
+export default Project;

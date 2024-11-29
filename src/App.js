@@ -1,10 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Projects from "./Components/Projects";
-import Portfolio from "./Components/Portfolio";
 import Skills from "./Components/Skills";
 import Home from "./Components/Home";
-import Header from "./Components/Header";
 import VideoResume from "./Components/VideoResume";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
@@ -22,10 +20,9 @@ function App() {
         <Humberger/>
         <Home />
         <VideoResume />
-        <Portfolio />
+        <Projects/>
         <Skills />
-
-        <About />
+         <About />
         <Contact />
         
       </div>

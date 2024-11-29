@@ -1,6 +1,7 @@
 import React from "react";
 
 const Cheak = () => {
+
   return (
     <>
       <div className="text-white p-2">
