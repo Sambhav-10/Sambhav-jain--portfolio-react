@@ -2,7 +2,7 @@ import React from "react";
 
 const Portfolio = () => {
   return (
-    <div className="text-white p-2 h-full">
+    <div className="text-white p-2">
     <h1 className="text-center text-[#77b28c] text-6xl font-bold py-5">Project</h1>
     <div className="w-full md:h-96 flex justify-center">
       <div className="w-[80%] h-full  md:flex md:border-0 border-2 border-[#77b28c] p-2 rounded-lg md:p-0">
@@ -24,7 +24,7 @@ const Portfolio = () => {
               search suggestions with debouncing for optimal API performance
             </p>
             <p>Tools- React</p>
-            <div className="md:mt-5 flex w-full justify-around gap-5 text-center ">
+            <div className="mt-5 flex w-full justify-around gap-5 text-center ">
               <button className="bg-[#77b28c] w-28 rounded-xl p-2">Live</button>
               <button className="bg-[#77b28c] w-28 rounded-xl p-2">Sourse code</button>
             </div>

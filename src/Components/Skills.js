@@ -2,7 +2,7 @@ import React from "react";
 
 const Skills = () => {
   return (
-    <div className="bg-black flex justify-center items-center text-white w-full h-[80vh] border-b-4 rounded-full border-[#77b28c]">
+    <div className="bg-black flex justify-center items-center text-white w-full h-[100vh] border-b-4 rounded-full border-[#77b28c]  md:my-0 my-5">
       <div>
         <h1 className="w-full text-center mt-5 text-6xl font-bold text-[#77b28c]">
           {" "}
@@ -69,27 +69,4 @@ const Skills = () => {
 
 export default Skills;
 
-const no = () => {
-  <div className="w-full">
-    <h1 className="center">Each project is a unique piece of development</h1>
-    <div className="flex justify-center w-full ">
-      <button className="w-1/2 ">
-        <img src="" alt="" />
-      </button>
-      <div className="w-1/2">
-        <h3>Youtube app</h3>
-        <p>
-          in this project we use - api calling ,state, and propt mange , search
-          funtionality , debounsing,{" "}
-        </p>
-        <div>
-          REAct
-        </div>
-        <div className="flex">
-          <p>code</p>
-          <p>Live</p>
-        </div>
-      </div>
-    </div>
-  </div>;
-};
+
